@@ -1,0 +1,47 @@
+<ion-content no-margin>
+  <div no-margin no-padding>
+    <img [src]="maps" alt="Maps">
+    <div class="card-maps">
+      <ion-grid>
+        <ion-row col-12>
+          <h2>Golden Apartamento</h2>
+          <p no-margin>Águas Claras, Brasília - DF</p>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div class="googlemap">
+  </div>
+  <ion-grid>
+      <ion-row class="info-format">
+          <ion-col col-12>
+            <h2 text-center>Ambiente</h2>
+          </ion-col>
+          <ion-col col-4 text-center class="icon-ambiente">
+            <ion-icon name="car"></ion-icon>
+            <p>1 vaga</p>
+          </ion-col>
+
+          <ion-col col-4 text-center class="icon-ambiente">
+            <ion-icon name="cafe"></ion-icon>
+            <p>Café da manhã</p>
+          </ion-col>
+
+          <ion-col col-4 text-center class="icon-ambiente">
+            <ion-icon name="snow"></ion-icon>
+            <p>Ar condicionado</p>
+          </ion-col>
+
+          <ion-col col-3 text-center class="icon-ambiente">
+            <ion-icon></ion-icon>
+            <p></p>
+          </ion-col>
+
+        </ion-row>
+        <button ion-button outline block (click)="popPage()">
+            <ion-icon name="ios-arrow-round-back-outline"></ion-icon>
+            Voltar
+          </button>
+  </ion-grid>
+
+</ion-content>

@@ -4,7 +4,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { UsersProvider } from '../providers/users/users';
 import { HttpModule } from '@angular/http';
 import { ApService } from './../pages/services/apart-service';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,8 +15,9 @@ import { AlteradadosPage } from '../pages/alteradados/alteradados';
 import { EditarApPage } from '../pages/editar-ap/editar-ap';
 import { InfoperfilPage } from '../pages/infoperfil/infoperfil';
 import { ApartamentosProvider } from '../providers/apartamentos/apartamentos';
+import { UsersProvider } from '../providers/users/users';
 import { DetalheApPage } from '../pages/detalhe-ap/detalhe-ap';
-
+import { LocalizacaoPage } from '../pages/localizacao/localizacao';
 
 @NgModule({
   declarations: [
@@ -28,13 +28,14 @@ import { DetalheApPage } from '../pages/detalhe-ap/detalhe-ap';
     InfoperfilPage,
     ApagaimovelPage,
     AlteradadosPage,
-    EditarApPage
-    //DetalheApPage,
+    EditarApPage,
+    DetalheApPage,
+    LocalizacaoPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
 
   ],
   bootstrap: [IonicApp],
@@ -46,15 +47,17 @@ import { DetalheApPage } from '../pages/detalhe-ap/detalhe-ap';
     InfoperfilPage,
     ApagaimovelPage,
     AlteradadosPage,
-    EditarApPage
+    EditarApPage,
+    DetalheApPage,
+    LocalizacaoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsersProvider,
     ApService,
-    ApartamentosProvider
+    ApartamentosProvider,
+    UsersProvider
   ]
 })
 export class AppModule {}

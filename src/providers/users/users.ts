@@ -1,7 +1,7 @@
-//import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
+
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -11,19 +11,17 @@ export class UsersProvider {
 
   constructor(public http: Http) { }
 
-    login(user: string, senha: string) {
-      return new Promise((resolve, reject) =>{
-        var usuario = user;
-        var pass = senha;
-        this.http.get(this.API_URL + '/' + usuario + '/'+pass)
-        .subscribe((result: any) => {
-          resolve(result.json());
-        },
-        (error) => {
-          reject(error.json())
-        })
-      });
-    }
+  login(user: string, senha: string) {
+    return new Promise((resolve, reject) =>{
+      var usuario = user;
+      var pass = senha;
+      this.http.get(this.API_URL + '/' + usuario + '/'+pass)
+      .subscribe((result: any) => {
+        resolve(result.json());
+      },
+      (error) => {
+        reject(error.json())
+      })
+    });
   }
-
-
+}

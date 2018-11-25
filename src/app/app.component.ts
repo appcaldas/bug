@@ -6,8 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage } from '../pages/login/login';
+import { timer } from 'rxjs/observable/timer';
 import { HomeCardsPage } from '../pages/home-cards/home-cards';
-
 
 @Component({
   templateUrl: 'app.html'
@@ -17,6 +17,8 @@ export class MyApp {
 
   // Página que será exibida primeiramente (voltar com LoginPage)
   rootPage: any = HomeCardsPage;
+
+  showSplash = true;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
@@ -34,6 +36,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      timer(3000).subscribe(()=> this.showSplash = false)
     });
   }
 

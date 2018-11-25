@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { LocalizacaoPage } from '../localizacao/localizacao';
 
-/**
- * Generated class for the DetalheApPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -14,15 +10,62 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detalhe-ap.html',
 })
 export class DetalheApPage {
-  aparts: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.aparts = this.navParams.get('apart');
-    
+
+  public aparts: any[];
+  public status = "Livre";
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController
+    //public apartamentos: ApartamentosProvider
+    ) {
+      this.aparts = this.navParams.get('apart');
   }
 
-  ionViewDidLoad() {
-    console.log(this.aparts);
-    
+ionViewDidLoad(){
+  console.log('>>>>>> '+this.retornaAp());
+
+}
+
+  public retornaAp() {
+    return this.aparts;
   }
+
+
+public presentAlertStatus(event) {
+  this.status = "Ocupado"
+  if(!event.checked) {
+
+    let alert = this.alertCtrl.create({
+      title: 'Atenção',
+      message: 'Deseja liberar esse apartemento?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            event.checked = true;
+            this.status = "Ocupado"
+          }
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            event.checked = false;
+            this.status = "Disponível"
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+}
+
+public pushMaps() {
+  this.navCtrl.push(LocalizacaoPage);
+  console.log('Retorna pagina com google maps');
+
+}
 
 }

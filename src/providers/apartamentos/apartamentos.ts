@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class ApartamentosProvider {
-  private apart: any;
 
   private API_URL = "http://espaco10.000webhostapp.com/menuws.php";
 
-  constructor(
-    public http: Http) { }
+  constructor(public http: Http) { }
 
   // retorna todos apartamentos em formato JSON
   getAll() {
@@ -27,6 +26,7 @@ export class ApartamentosProvider {
     })
   }
 
+  // retorna apartamento por id
   get(id) {
     return new Promise((resolve, reject) => {
       let url = this.API_URL+'/'+id;
