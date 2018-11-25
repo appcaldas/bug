@@ -62,10 +62,8 @@ public presentAlertStatus(event) {
   }
 }
 
-public pushMaps() {
-  this.navCtrl.push(LocalizacaoPage);
-  console.log('Retorna pagina com google maps');
-
+public pushMaps(apart: any) {
+  this.navCtrl.push(LocalizacaoPage, {apartamento: apart});
 }
 
 }

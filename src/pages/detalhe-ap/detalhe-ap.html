@@ -14,7 +14,7 @@
 
   <ion-content style="padding: 3px;" *ngFor="let apart of aparts">
     <ion-fab top right>
-      <button ion-fab mini color="primary" (click)="pushMaps()">
+      <button ion-fab mini color="primary" (click)="pushMaps(apart)">
         <ion-icon  name="ios-pin-outline"></ion-icon>
       </button>
     </ion-fab>

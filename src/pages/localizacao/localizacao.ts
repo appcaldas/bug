@@ -1,7 +1,5 @@
-import { Component, Injector, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DetalheApPage } from '../detalhe-ap/detalhe-ap';
-
 
 @IonicPage()
 @Component({
@@ -15,18 +13,15 @@ export class LocalizacaoPage {
   public aparts: any[];
 
 
-
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
-    public ap: DetalheApPage
+    public navParams: NavParams
     ) {
-      this.aparts = this.ap.retornaAp()
+      this.aparts = this.navParams.data;
     }
 
     ionViewDidLoad() {
     this.maps = this.getMaps();
-    //this.aparts = this.ap.retornaAp();
     console.log(this.aparts);
 
   }
